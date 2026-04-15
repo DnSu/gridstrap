@@ -52,6 +52,22 @@ const getOrderClassName = (prefix: string, value: GridSize | undefined) => {
   return null;
 };
 
+export type JustifyContent =
+  | 'start'
+  | 'end'
+  | 'center'
+  | 'between'
+  | 'around'
+  | 'evenly';
+
+export type AlignContent =
+  | 'start'
+  | 'end'
+  | 'center'
+  | 'between'
+  | 'around'
+  | 'stretch';
+
 export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
   fluid?: boolean;
 }
@@ -69,10 +85,28 @@ export function Container({
   );
 }
 
-export type RowProps = HTMLAttributes<HTMLDivElement>;
+export interface RowProps extends HTMLAttributes<HTMLDivElement> {
+  justifyContent?: JustifyContent;
+  alignContent?: AlignContent;
+}
 
-export function Row({ className, ...props }: RowProps) {
-  return <div className={joinClasses('row', className)} {...props} />;
+export function Row({
+  className,
+  justifyContent,
+  alignContent,
+  ...props
+}: RowProps) {
+  return (
+    <div
+      className={joinClasses(
+        'row',
+        justifyContent ? `justify-content-${justifyContent}` : null,
+        alignContent ? `align-content-${alignContent}` : null,
+        className,
+      )}
+      {...props}
+    />
+  );
 }
 
 export interface ColProps extends HTMLAttributes<HTMLDivElement> {

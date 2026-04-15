@@ -9,10 +9,12 @@ export {
 } from './grid';
 
 export type {
+  AlignContent,
   Breakpoint,
   ColProps,
   ColValue,
   ContainerProps,
   GridSize,
+  JustifyContent,
   RowProps,
 } from './grid';
