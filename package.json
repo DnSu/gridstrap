@@ -1,0 +1,64 @@
+{
+  "name": "gridstrap",
+  "version": "0.1.0",
+  "description": "Reusable React grid components and styles for other projects.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./grid.css": "./dist/grid.css",
+    "./grid.scss": "./dist/grid.scss"
+  },
+  "peerDependencies": {
+    "react": "^18.3.0 || ^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": false
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "**/*.css",
+    "**/*.scss"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "yarn@4.9.1",
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean && sass src/styles/grid.scss dist/grid.css --style=expanded --no-source-map && node scripts/copy-assets.mjs",
+    "clean": "rm -rf dist",
+    "lint": "eslint .",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "prepublishOnly": "yarn lint && yarn build"
+  },
+  "keywords": [
+    "typescript",
+    "module",
+    "library"
+  ],
+  "devDependencies": {
+    "@eslint/js": "^9.25.1",
+    "@types/react": "^19.1.2",
+    "eslint": "^9.25.1",
+    "eslint-config-prettier": "^10.1.2",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.3",
+    "react": "^19.1.0",
+    "sass": "^1.86.3",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.30.1"
+  }
+}
