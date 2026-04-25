@@ -42,8 +42,6 @@ var GRID_BREAKPOINTS = {
   xxl: "1400px"
 };
 var GRID_CONTAINER_MAX_WIDTHS = {
-  sm: "540px",
-  md: "720px",
   lg: "960px",
   xl: "1140px",
   xxl: "1320px"

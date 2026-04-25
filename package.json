@@ -1,6 +1,6 @@
 {
   "name": "gridstrap",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "description": "Reusable React grid components and styles for other projects.",
   "license": "MIT",
   "type": "module",
@@ -42,7 +42,8 @@
     "lint": "eslint .",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "prepublishOnly": "yarn lint && yarn build"
+    "prepublishOnly": "yarn lint && yarn build",
+    "prepare": "husky install"
   },
   "keywords": [
     "typescript",
@@ -57,6 +58,7 @@
     "eslint": "^9.25.1",
     "eslint-config-prettier": "^10.1.2",
     "globals": "^16.0.0",
+    "husky": "^8.0.0",
     "prettier": "^3.5.3",
     "react": "^19.1.0",
     "react-dom": "^19.2.5",

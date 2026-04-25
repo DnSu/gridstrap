@@ -11,8 +11,6 @@ declare const GRID_BREAKPOINTS: {
     readonly xxl: "1400px";
 };
 declare const GRID_CONTAINER_MAX_WIDTHS: {
-    readonly sm: "540px";
-    readonly md: "720px";
     readonly lg: "960px";
     readonly xl: "1140px";
     readonly xxl: "1320px";
