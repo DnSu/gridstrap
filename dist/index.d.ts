@@ -24,8 +24,9 @@ type JustifyContent = 'start' | 'end' | 'center' | 'between' | 'around' | 'evenl
 type AlignContent = 'start' | 'end' | 'center' | 'between' | 'around' | 'stretch';
 interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
     fluid?: boolean;
+    style?: React.CSSProperties;
 }
-declare function Container({ className, fluid, ...props }: ContainerProps): react_jsx_runtime.JSX.Element;
+declare function Container({ className, fluid, style, ...props }: ContainerProps): react_jsx_runtime.JSX.Element;
 interface RowProps extends HTMLAttributes<HTMLDivElement> {
     justifyContent?: JustifyContent;
     alignContent?: AlignContent;

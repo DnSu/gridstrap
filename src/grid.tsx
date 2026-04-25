@@ -12,8 +12,6 @@ export const GRID_BREAKPOINTS = {
 } as const;
 
 export const GRID_CONTAINER_MAX_WIDTHS = {
-  sm: '540px',
-  md: '720px',
   lg: '960px',
   xl: '1140px',
   xxl: '1320px',
@@ -70,16 +68,19 @@ export type AlignContent =
 
 export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
   fluid?: boolean;
+  style?: React.CSSProperties;
 }
 
 export function Container({
   className,
   fluid = false,
+  style,
   ...props
 }: ContainerProps) {
   return (
     <div
       className={joinClasses(fluid ? 'container-fluid' : 'container', className)}
+      style={style}
       {...props}
     />
   );

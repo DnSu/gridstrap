@@ -69,12 +69,14 @@ var getOrderClassName = (prefix, value) => {
 function Container({
   className,
   fluid = false,
+  style,
   ...props
 }) {
   return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
     "div",
     {
       className: joinClasses(fluid ? "container-fluid" : "container", className),
+      style,
       ...props
     }
   );
