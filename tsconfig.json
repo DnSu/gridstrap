@@ -3,7 +3,7 @@
     "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "lib": ["ES2022"],
+    "lib": ["ES2022", "DOM"],
     "jsx": "react-jsx",
     "strict": true,
     "declaration": true,
@@ -16,8 +16,7 @@
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "noEmit": true,
-    "rootDir": "src"
   },
-  "include": ["src", "eslint.config.mjs", "prettier.config.mjs"],
+  "include": ["src", "dev", "vite.config.ts", "eslint.config.mjs", "prettier.config.mjs"],
   "exclude": ["dist", "node_modules"]
 }

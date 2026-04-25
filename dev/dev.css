@@ -1,0 +1,83 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #fff;
+  color: #1a1a1a;
+}
+
+.page {
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 2.5rem;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+h2 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #555;
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.demo {
+  margin-bottom: 0.75rem;
+}
+
+.demo-label {
+  font-size: 0.7rem;
+  font-family: monospace;
+  color: #999;
+  margin: 0 0 0.2rem;
+}
+
+.screen-size-indicator {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 9999;
+}
+
+.screen-size-indicator::after {
+  content: 'xs';
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background: #1a1a1a;
+  color: #fff;
+  font-family: monospace;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  opacity: 0.85;
+}
+
+@media (min-width: 576px) {
+  .screen-size-indicator::after { content: 'sm'; }
+}
+@media (min-width: 768px) {
+  .screen-size-indicator::after { content: 'md'; }
+}
+@media (min-width: 992px) {
+  .screen-size-indicator::after { content: 'lg'; }
+}
+@media (min-width: 1200px) {
+  .screen-size-indicator::after { content: 'xl'; }
+}
+@media (min-width: 1400px) {
+  .screen-size-indicator::after { content: 'xxl'; }
+}
