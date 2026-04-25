@@ -1,59 +1,31 @@
-// src/grid.tsx
-import { jsx } from "react/jsx-runtime";
-var GRID_COLUMNS = 12;
-var GRID_GUTTER = "1.5rem";
-var GRID_BREAKPOINTS = {
-  sm: "576px",
-  md: "768px",
-  lg: "992px",
-  xl: "1200px",
-  xxl: "1400px"
-};
-var GRID_CONTAINER_MAX_WIDTHS = {
-  lg: "960px",
-  xl: "1140px",
-  xxl: "1320px"
-};
-var joinClasses = (...classes) => {
-  return classes.filter(Boolean).join(" ");
-};
-var getColClassName = ({ prefix, value }) => {
-  if (value === true) {
-    return prefix;
-  }
-  if (typeof value === "number") {
-    return `${prefix}-${value}`;
-  }
+// src/utils.ts
+var joinClasses = (...classes) => classes.filter(Boolean).join(" ");
+var getColClassName = (prefix, value) => {
+  if (value === true) return prefix;
+  if (typeof value === "number") return `${prefix}-${value}`;
   return null;
 };
 var getOrderClassName = (prefix, value) => {
-  if (typeof value === "number") {
-    return `${prefix}-${value}`;
-  }
+  if (typeof value === "number") return `${prefix}-${value}`;
   return null;
 };
-function Container({
-  className,
-  fluid = false,
-  style,
-  ...props
-}) {
+
+// src/Container.tsx
+import { jsx } from "react/jsx-runtime";
+function Container({ className, fluid = false, ...props }) {
   return /* @__PURE__ */ jsx(
     "div",
     {
       className: joinClasses(fluid ? "container-fluid" : "container", className),
-      style,
       ...props
     }
   );
 }
-function Row({
-  className,
-  justifyContent,
-  alignContent,
-  ...props
-}) {
-  return /* @__PURE__ */ jsx(
+
+// src/Row.tsx
+import { jsx as jsx2 } from "react/jsx-runtime";
+function Row({ className, justifyContent, alignContent, ...props }) {
+  return /* @__PURE__ */ jsx2(
     "div",
     {
       className: joinClasses(
@@ -66,6 +38,9 @@ function Row({
     }
   );
 }
+
+// src/Col.tsx
+import { jsx as jsx3 } from "react/jsx-runtime";
 function Col({
   className,
   xs,
@@ -83,12 +58,12 @@ function Col({
   ...props
 }) {
   const sizeClasses = [
-    getColClassName({ prefix: "col", value: xs }),
-    getColClassName({ prefix: "col-sm", value: sm }),
-    getColClassName({ prefix: "col-md", value: md }),
-    getColClassName({ prefix: "col-lg", value: lg }),
-    getColClassName({ prefix: "col-xl", value: xl }),
-    getColClassName({ prefix: "col-xxl", value: xxl })
+    getColClassName("col", xs),
+    getColClassName("col-sm", sm),
+    getColClassName("col-md", md),
+    getColClassName("col-lg", lg),
+    getColClassName("col-xl", xl),
+    getColClassName("col-xxl", xxl)
   ];
   const orderClasses = [
     getOrderClassName("order", order),
@@ -101,7 +76,7 @@ function Col({
   const hasExplicitSize = [xs, sm, md, lg, xl, xxl].some(
     (value) => value === true || typeof value === "number"
   );
-  return /* @__PURE__ */ jsx(
+  return /* @__PURE__ */ jsx3(
     "div",
     {
       className: joinClasses(
@@ -114,6 +89,22 @@ function Col({
     }
   );
 }
+
+// src/constants.ts
+var GRID_COLUMNS = 12;
+var GRID_GUTTER = "1.5rem";
+var GRID_BREAKPOINTS = {
+  sm: "576px",
+  md: "768px",
+  lg: "992px",
+  xl: "1200px",
+  xxl: "1400px"
+};
+var GRID_CONTAINER_MAX_WIDTHS = {
+  lg: "960px",
+  xl: "1140px",
+  xxl: "1320px"
+};
 export {
   Col,
   Container,

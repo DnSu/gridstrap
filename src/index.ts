@@ -1,20 +1,20 @@
+export { Container } from './Container';
+export { Row } from './Row';
+export { Col } from './Col';
 export {
-  Col,
-  Container,
-  Row,
   GRID_BREAKPOINTS,
   GRID_COLUMNS,
   GRID_CONTAINER_MAX_WIDTHS,
   GRID_GUTTER,
-} from './grid';
+} from './constants';
 
+export type { ContainerProps } from './Container';
+export type { RowProps } from './Row';
+export type { ColProps } from './Col';
 export type {
   AlignContent,
   Breakpoint,
-  ColProps,
   ColValue,
-  ContainerProps,
   GridSize,
   JustifyContent,
-  RowProps,
-} from './grid';
+} from './types';
