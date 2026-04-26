@@ -1,0 +1,44 @@
+@use 'sass:math';
+@use './variables';
+@use './mixins';
+
+[class^='col'] {
+  box-sizing: border-box;
+  padding-right: math.div(variables.$grid-gutter, 2);
+  padding-left: math.div(variables.$grid-gutter, 2);
+  width: 100%;
+}
+
+.col {
+  flex: 1 0 0%;
+}
+
+@for $i from 1 through variables.$grid-columns {
+  .col-#{$i} {
+    flex: 0 0 auto;
+    width: math.percentage(math.div($i, variables.$grid-columns));
+  }
+
+  .order-#{$i} {
+    order: $i;
+  }
+}
+
+@each $bp, $_ in variables.$breakpoints {
+  @include mixins.respond-to($bp) {
+    .col-#{$bp} {
+      flex: 1 0 0%;
+    }
+
+    @for $i from 1 through variables.$grid-columns {
+      .col-#{$bp}-#{$i} {
+        flex: 0 0 auto;
+        width: math.percentage(math.div($i, variables.$grid-columns));
+      }
+
+      .order-#{$bp}-#{$i} {
+        order: $i;
+      }
+    }
+  }
+}

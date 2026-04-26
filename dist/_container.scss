@@ -1,0 +1,21 @@
+@use 'sass:math';
+@use './variables';
+@use './mixins';
+
+.container,
+.container-fluid {
+  box-sizing: border-box;
+  width: 100%;
+  padding-right: math.div(variables.$grid-gutter, 2);
+  padding-left: math.div(variables.$grid-gutter, 2);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container {
+  @each $bp, $max-width in variables.$container-max-widths {
+    @include mixins.respond-to($bp) {
+      max-width: $max-width;
+    }
+  }
+}

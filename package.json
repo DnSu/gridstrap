@@ -1,6 +1,6 @@
 {
   "name": "gridstrap",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Reusable React grid components and styles for other projects.",
   "license": "MIT",
   "type": "module",

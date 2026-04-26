@@ -4,8 +4,8 @@ import { fileURLToPath } from 'node:url';
 
 const currentDir = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(currentDir, '..');
-const sourceFile = resolve(rootDir, 'src/styles/grid.scss');
-const targetFile = resolve(rootDir, 'dist/grid.scss');
+const stylesDir = resolve(rootDir, 'src/styles');
+const distDir = resolve(rootDir, 'dist');
 
-await mkdir(dirname(targetFile), { recursive: true });
-await cp(sourceFile, targetFile);
+await mkdir(distDir, { recursive: true });
+await cp(stylesDir, distDir, { recursive: true });
