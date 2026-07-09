@@ -1,6 +1,6 @@
 {
   "name": "gridstrap",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Reusable React grid components and styles for other projects.",
   "license": "MIT",
   "type": "module",
@@ -14,7 +14,8 @@
       "require": "./dist/index.cjs"
     },
     "./grid.css": "./dist/grid.css",
-    "./grid.scss": "./dist/grid.scss"
+    "./grid.scss": "./dist/grid.scss",
+    "./*.scss": "./dist/*.scss"
   },
   "peerDependencies": {
     "react": "^18.3.0 || ^19.0.0"
