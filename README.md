@@ -133,45 +133,6 @@ When using SCSS, override defaults with `@use ... with (...)`:
 );
 ```
 
-## Known limitations
-
-### Next.js 16 (Turbopack) Sass resolution
-
-Some Next.js 16 Turbopack builds have been reported to fail resolving the relative
-`@forward`/`@use` partial imports inside `gridstrap/grid.scss` when it's consumed from
-`node_modules`, with an error like:
-
-```
-Error: Can't find stylesheet to import.
-  1 │ @forward './variables';
-    node_modules/gridstrap/dist/grid.scss 1:1  @forward
-```
-
-This is a known class of upstream Turbopack Sass-resolution bug (see
-[vercel/next.js#87243](https://github.com/vercel/next.js/issues/87243) and
-[vercel/next.js#60088](https://github.com/vercel/next.js/issues/60088)), most commonly
-reported on Windows. It was not reproducible against current stable Next.js (16.0.0–16.2.10)
-on Linux/macOS in flat `node_modules` or pnpm-workspace monorepo setups tested against this
-package, but as a defensive measure `grid.scss` and its partials now import each other using
-explicit underscore-prefixed paths (e.g. `@forward './_variables'` instead of `@forward
-'./variables'`) instead of relying on Turbopack applying Sass's partial-naming convention, and
-`package.json` exposes every `dist/*.scss` partial through `exports` so resolvers that enforce
-package export maps can reach them directly.
-
-If you still hit this error on Turbopack, the workaround is to point Sass at gridstrap's
-`dist` directory directly via `sassOptions.loadPaths` in `next.config.ts`:
-
-```ts
-const nextConfig: NextConfig = {
-  sassOptions: {
-    loadPaths: ['./node_modules/gridstrap/dist'],
-  },
-};
-```
-
-or build with `next build --webpack` / `next dev --webpack`, which resolves these imports
-correctly today.
-
 ## Exports
 
 - `Container`

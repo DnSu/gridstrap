@@ -1,6 +1,6 @@
 @use 'sass:math';
-@use './_variables';
-@use './_mixins';
+@use './variables';
+@use './mixins';
 
 .container,
 .container-fluid {
